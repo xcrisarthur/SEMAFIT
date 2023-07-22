@@ -7,26 +7,25 @@ import p1 from "../Image/Poster1.jpg";
 import p2 from "../Image/poster2.jpg";
 import p3 from "../Image/poster3.jpg";
 
-import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
-import { RxDotFilled } from 'react-icons/rx';
+import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import { RxDotFilled } from "react-icons/rx";
 
 const Merchandise = () => {
-
   const slides = [
     {
-      url: 'https://cdn.discordapp.com/attachments/1014442386857926666/1130032328140402688/poster1.jpg',
+      url: "https://cdn.discordapp.com/attachments/1014442386857926666/1130032328140402688/poster1.jpg",
     },
     {
-      url: 'https://cdn.discordapp.com/attachments/1014442386857926666/1130032327247016078/poster2.jpg',
+      url: "https://cdn.discordapp.com/attachments/1014442386857926666/1130032327247016078/poster2.jpg",
     },
     {
-      url: 'https://cdn.discordapp.com/attachments/1014442386857926666/1130032327574159420/poster3.jpg',
+      url: "https://cdn.discordapp.com/attachments/1014442386857926666/1130032327574159420/poster3.jpg",
     },
     {
-      url: 'https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80',
+      url: "https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80",
     },
     {
-      url: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80',
+      url: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
     },
   ];
 
@@ -57,36 +56,36 @@ const Merchandise = () => {
         <h2 className="text-center font-semibold text-2xl">@toko.semafit</h2>
       </div>
 
-      <div className='max-w-[100%] h-[500px] w-full m-auto py-6 px-4 relative group'>
-      <div
-        style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
-      ></div>
-      {/* Left Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-        <BsChevronCompactLeft onClick={prevSlide} size={30} />
+      <div className="max-w-[100%] h-[500px] w-full m-auto py-6 px-4 relative group">
+        <div
+          style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+          className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
+        ></div>
+        {/* Left Arrow */}
+        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+          <BsChevronCompactLeft onClick={prevSlide} size={30} />
+        </div>
+        {/* Right Arrow */}
+        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+          <BsChevronCompactRight onClick={nextSlide} size={30} />
+        </div>
+        <div className="flex top-4 justify-center py-2">
+          {slides.map((slide, slideIndex) => (
+            <div
+              key={slideIndex}
+              onClick={() => goToSlide(slideIndex)}
+              className="text-2xl cursor-pointer"
+            >
+              <RxDotFilled />
+            </div>
+          ))}
+        </div>
       </div>
-      {/* Right Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-        <BsChevronCompactRight onClick={nextSlide} size={30} />
-      </div>
-      <div className='flex top-4 justify-center py-2'>
-        {slides.map((slide, slideIndex) => (
-          <div
-            key={slideIndex}
-            onClick={() => goToSlide(slideIndex)}
-            className='text-2xl cursor-pointer'
-          >
-            <RxDotFilled />
-          </div>
-        ))}
-      </div>
-    </div>
 
       <div className="mt-16 mb-10 mx-auto text-center w-96">
         <h2 className="text-center font-semibold text-2xl">Merchandise</h2>
         <h1 className="text-center font-bold text-4xl">TokoSemaFIT</h1>
-        <h2 className="text-center text-xl break-words whitespace-pre-line">
+        <h2 className="text-center text-xl ">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt
           quisquam error ipsa suscipit, eaque cupiditate cumque exercitationem
           laboriosam neque delectus cum facilis aut ab dolorem quasi, distinctio
@@ -94,35 +93,49 @@ const Merchandise = () => {
         </h2>
       </div>
 
-      {}
-
-      <section className="overflow-hidden bg-[url(https://cdn.discordapp.com/attachments/1014443032797519914/1124009243905904701/Desain_tanpa_judul.jpg)] bg-cover bg-top bg-no-repeat">
-        <div className="bg-black/25 p-8 md:p-12 lg:px-16 lg:py-24">
-          <div className="text-center ltr:sm:text-left rtl:sm:text-right">
-            <h2 className="text-2xl font-bold text-black sm:text-3xl md:text-5xl">
-              Latest Update
-            </h2>
-
-            <p className="hidden max-w-lg text-white/90 md:mt-6 md:block md:text-lg md:leading-relaxed">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Inventore officia corporis quasi doloribus iure architecto quae
-              voluptatum beatae excepturi dolores.
-            </p>
-
-            <div className="mt-4 sm:mt-8">
-              <a
-                href="https://www.instagram.com/toko.semafit/"
-                target="blank"
-                className="inline-block rounded-full bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
-              >
-                Get Yours Today
-              </a>
-            </div>
-          </div>
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 my-24">
+        <div className="h-32 rounded-lg flex justify-center items-center h-100">
+          <img src="src/Image/Logo.png" alt="Logo" />
         </div>
-      </section>
 
-      <section>
+        <div className="h-32 rounded-lg flex flex-col justify-center items-center">
+          <h2 className="text-2xl font-bold text-black sm:text-3xl md:text-5xl text-center">
+            Latest Update
+          </h2>
+
+          <a
+            className="my-3 group relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
+            href="/download"
+          >
+            <span className="absolute -end-full transition-all group-hover:end-4">
+              <svg
+                className="h-5 w-5 rtl:rotate-180"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </span>
+
+            <span className="text-sm font-medium transition-all group-hover:me-4">
+              Check out our Instagram Account
+            </span>
+          </a>
+        </div>
+
+        <div className="h-32 rounded-lg flex justify-center items-center h-100">
+          <img src="src\Image\Acc.png" alt="Logo" />
+        </div>
+      </div>
+
+      <section className="flex items-center justify-center">
         <div className="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8 text-center">
           <header className="text-center">
             <p className="max-w-md mx-auto mt-4 text-gray-500">Bundle</p>
@@ -132,9 +145,8 @@ const Merchandise = () => {
             </h2>
           </header>
 
-          <ul className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-4 ">
-            <li>
-              {/* eslint-disable jsx-a11y/anchor-is-valid */}
+          <ul className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-2 ">
+            <li className="flex flex-col items-center">
               <a href="#" className="block overflow-hidden group">
                 <img
                   srcSet="https://cdn.discordapp.com/attachments/1014443032797519914/1124012611273506916/Snapinsta.app_339676838_702310228250744_5671931551316459820_n_1024.jpg"
@@ -142,7 +154,7 @@ const Merchandise = () => {
                   className="h-[350px] w-auto object-cover transition duration-500 group-hover:scale-105 sm:h-[450px] mx-auto"
                 />
 
-                <div className="relative pt-3 bg-white">
+                <div className="relative pt-3 bg-white text-center">
                   <p className="mt-2 text-2xl">
                     <span className="sr-only"> Regular Price </span>
 
@@ -155,7 +167,7 @@ const Merchandise = () => {
               </a>
             </li>
 
-            <li>
+            <li className="flex flex-col items-center">
               <a className="block overflow-hidden group">
                 <img
                   srcSet="https://cdn.discordapp.com/attachments/1014443032797519914/1124012610950529045/Snapinsta.app_339665792_212356301414562_5563539063557496738_n_1024.jpg"
@@ -163,7 +175,7 @@ const Merchandise = () => {
                   className="h-[350px] w-auto object-cover transition duration-500 group-hover:scale-105 sm:h-[450px] mx-auto"
                 />
 
-                <div className="relative pt-3 bg-white">
+                <div className="relative pt-3 bg-white text-center">
                   <p className="mt-2 text-2xl">
                     <span className="sr-only"> Regular Price </span>
 
@@ -179,7 +191,7 @@ const Merchandise = () => {
         </div>
       </section>
 
-      <section>
+      <section className="flex items-center justify-center">
         <div className="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
           <header className="text-center">
             <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">
@@ -187,7 +199,7 @@ const Merchandise = () => {
             </h2>
           </header>
 
-          <ul className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-4 text-center">
+          <ul className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-2 text-center">
             <li>
               <a className="block overflow-hidden group">
                 <img
@@ -233,7 +245,7 @@ const Merchandise = () => {
         </div>
       </section>
 
-      <section className="overflow-hidden bg-[url(https://cdn.discordapp.com/attachments/1014443032797519914/1124009243905904701/Desain_tanpa_judul.jpg)] bg-cover bg-top bg-no-repeat">
+      {/* <section className="overflow-hidden bg-[url(https://cdn.discordapp.com/attachments/1014443032797519914/1124009243905904701/Desain_tanpa_judul.jpg)] bg-cover bg-top bg-no-repeat">
         <div className="bg-black/25 p-8 md:p-12 lg:px-16 lg:py-24">
           <div className="text-center ltr:sm:text-left rtl:sm:text-right">
             <h2 className="text-2xl font-bold text-black sm:text-3xl md:text-5xl">
@@ -257,7 +269,7 @@ const Merchandise = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section>
         <div className="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
@@ -294,7 +306,8 @@ const Merchandise = () => {
 
               <a
                 className="my-5 inline-block rounded bg-indigo-600 px-8 py-3 text-sm font-medium text-white transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:bg-indigo-500"
-                href="/download"
+                href="https://www.instagram.com/p/CquDS3mLM0k/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
+                target="blank"
               >
                 Check Catalog
               </a>
@@ -311,7 +324,8 @@ const Merchandise = () => {
 
               <a
                 className="my-5 inline-block rounded bg-indigo-600 px-8 py-3 text-sm font-medium text-white transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:bg-indigo-500"
-                href="/download"
+                href="https://www.instagram.com/p/CquELxVreUE/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
+                target="blank"
               >
                 Check Catalog
               </a>
@@ -328,7 +342,8 @@ const Merchandise = () => {
 
               <a
                 className="my-5 inline-block rounded bg-indigo-600 px-8 py-3 text-sm font-medium text-white transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:bg-indigo-500"
-                href="/download"
+                href="https://www.instagram.com/p/CquDkgerpFr/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
+                target="blank"
               >
                 Check Catalog
               </a>
@@ -418,7 +433,9 @@ const Merchandise = () => {
 
               <div className="mt-8 flex justify-between">
                 <div className="max-w-[35ch] space-y-2">
-                  <h1 className="text-xl font-bold sm:text-2xl">Lanyard</h1>
+                  <h1 className="text-xl font-bold sm:text-2xl">
+                    Catalog of Lanyards
+                  </h1>
 
                   <p className="text-sm">Highest Rated Product</p>
 
@@ -489,7 +506,7 @@ const Merchandise = () => {
               </div>
 
               <form className="mt-8">
-                <fieldset>
+                {/* <fieldset>
                   <legend className="mb-1 text-sm font-medium">Color</legend>
 
                   <div className="flex flex-wrap gap-1">
@@ -633,7 +650,7 @@ const Merchandise = () => {
                       </span>
                     </label>
                   </div>
-                </fieldset>
+                </fieldset> */}
 
                 {/* <fieldset className="mt-4">
             <legend className="mb-1 text-sm font-medium">Size</legend>
@@ -722,7 +739,7 @@ const Merchandise = () => {
           </fieldset> */}
 
                 <div className="mt-8 flex gap-4">
-                  <div>
+                  {/* <div>
                     <label htmlFor="quantity" className="sr-only">
                       Qty
                     </label>
@@ -735,14 +752,16 @@ const Merchandise = () => {
                       value="1"
                       className="w-12 rounded border-gray-200 py-3 text-center text-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                     />
-                  </div>
+                  </div> */}
 
-                  <button
-                    type="submit"
+                  <a
+                    href="https://api.whatsapp.com/message/OMOFULN4CYZNC1?autoload=1&app_absent=0"
                     className="block rounded bg-blue-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
+                    role="button"
+                    target="blank"
                   >
-                    Add to Cart
-                  </button>
+                    Contact For Order
+                  </a>
                 </div>
               </form>
             </div>
