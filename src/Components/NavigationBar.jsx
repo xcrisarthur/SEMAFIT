@@ -9,9 +9,9 @@ const NavigationBar = ({ navNalue }) => {
       <header
         aria-label="Site Header"
         id="navbar"
-        className="shadow-sm sticky top-0 z-50 bg-white "
+        className="shadow-sm sticky top-0 z-50 bg-transparent backdrop-blur "
       >
-        <div className="mx-auto max-w-screen-xl p-4 ">
+        <div className="mx-auto max-w-screen-xl p-4">
           <div className="flex items-center justify-between gap-4 lg:gap-10">
             <div className="flex lg:w-0 lg:flex-1">
             <button
