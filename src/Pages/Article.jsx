@@ -49,6 +49,7 @@ const Article = () => {
   return (
     <>
       <NavigationBar />
+
       <div className="container p-5">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
           <div className="rounded-lg bg-gray-100">
@@ -244,7 +245,7 @@ const Article = () => {
           </div>
         </div>
       </div>
-
+      
       <Footer />
     </>
   );

@@ -18,3 +18,20 @@ function scrollFunction() {
 
   }
 }
+
+console.log("asdasd")
+
+// document.getElementById("setor").className = "w-100";
+// document.addEventListener("DOMContentLoaded", function() {
+//   const button = document.getElementById('myButton');
+//   const image = document.getElementById('myImage');
+
+//   button.addEventListener('click', function() {
+//     window.scrollTo({
+//       top: image.offsetTop,
+//       behavior: 'smooth'
+//     });
+//   });
+// });
+
+

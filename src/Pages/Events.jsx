@@ -5,6 +5,10 @@ import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import "../Css/carousel.css";
+import diskusi from "../Image/diskusi.jpg";
+import stuban from "../Image/Stuban1.jpg";
+import ran from "../Image/Apaini.jpg";
+
 
 const Events = () => {
   const slideRef = useRef(null);
@@ -23,34 +27,31 @@ const Events = () => {
   const data = [
     {
       id: 1,
-      imgUrl: "https://i.postimg.cc/PrMGqZwx/pexels-m-venter-1659437.jpg",
+      imgUrl: diskusi,
       desc: "Some beautiful roads cannot be discovered without getting loss.",
       name: "EXPLORE NATURE",
     },
     {
       id: 2,
-      imgUrl:
-        "https://i.postimg.cc/bw6KxhLf/pexels-eberhard-grossgasteiger-1062249.jpg",
+      imgUrl: stuban,
       desc: "Some beautiful roads cannot be discovered without getting loss.",
       name: "EXPLORE NATURE",
     },
     {
       id: 3,
-      imgUrl:
-        "https://i.postimg.cc/CMkTW9Mb/pexels-eberhard-grossgasteiger-572897.jpg",
+      imgUrl: ran,
       desc: "Some beautiful roads cannot be discovered without getting loss.",
       name: "EXPLORE NATURE",
     },
     {
       id: 5,
-      imgUrl: "https://i.postimg.cc/6qdkn4bM/pexels-joyston-judah-933054.jpg",
+      imgUrl: stuban,
       desc: "Some beautiful roads cannot be discovered without getting loss.",
       name: "EXPLORE NATURE",
     },
     {
       id: 6,
-      imgUrl:
-        "https://i.postimg.cc/RVm59Gqy/pexels-roberto-nickson-2559941.jpg",
+      imgUrl: ran,
       desc: "Some beautiful roads cannot be discovered without getting loss.",
       name: "EXPLORE NATURE",
     },
@@ -59,35 +60,46 @@ const Events = () => {
   return (
     <>
       <NavigationBar />
-      <div className="container py-96">
-      <div className="containerCarousel">
-        <div className="loadbar" style={{ width: `${loadingProgress}%` }}></div>
-        <div id="slideCarousel" ref={slideRef}>
-          {data.map((item) => (
-            <div
-              key={item.id}
-              className="itemCarousel"
-              style={{ backgroundImage: `url(${item.imgUrl})` }}
-            >
-              <div className="contentCarousel">
-                <div className="nameCarousel">{item.name}</div>
-                <div className="desCarousel">{item.desc}</div>
-                <button>See more</button>
+      <div className="">
+        <div className="containerCarousel">
+          <div
+            className="loadbar"
+            style={{ width: `${loadingProgress}%` }}
+          ></div>
+          <div id="slideCarousel" ref={slideRef}>
+            {data.map((item) => (
+              <div
+                key={item.id}
+                className="itemCarousel"
+                style={{ backgroundImage: `url(${item.imgUrl})` }}
+              >
+                <div className="contentCarousel">
+                  <div className="nameCarousel">{item.name}</div>
+                  <div className="desCarousel">{item.desc}</div>
+                  <button>See more</button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="buttonsCarousel">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <button className="ctaButtonP m-auto" onClick={handleClickPrev}>
+                  <span className="spanButtonP">PREVIOUS</span>
+                </button>
+              </div>
+              <div>
+                <button className="ctaButtonN m-auto" onClick={handleClickNext}>
+                  <span className="spanButtonN">NEXT</span>
+                </button>
               </div>
             </div>
-          ))}
-        </div>
-        <div className="buttonsCarousel">
-          <button id="prev" onClick={handleClickPrev}>
-            <FontAwesomeIcon icon={faAngleLeft} />
-          </button>
-          <button id="next" onClick={handleClickNext}>
-            <FontAwesomeIcon icon={faAngleRight} />
-          </button>
+          </div>
         </div>
       </div>
-      </div>
-      
+
+      <div className="wrapCarou"></div>
+
       <Footer />
     </>
   );

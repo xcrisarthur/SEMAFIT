@@ -72,7 +72,7 @@ const Footer = () => {
     <>
       {/* <hr className="drop-shadow-2xl"/> */}
 
-      <footer className="text-gray-500 bg-white px-4 py-5 max-w-screen-xl mx-auto md:px-8">
+      <footer className="text-gray-500 bg-white px-4 py-5 mx-auto md:px-28">
         <div className="gap-6 justify-between md:flex">
           <div className="flex-1">
             <div className="max-w-xs">

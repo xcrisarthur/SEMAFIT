@@ -6,11 +6,23 @@ import Carousel from "../Components/Carousel";
 import p1 from "../Image/Poster1.jpg";
 import p2 from "../Image/poster2.jpg";
 import p3 from "../Image/poster3.jpg";
+import "../Js/script"
 
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 
 const Merchandise = () => {
+  // // Deklarasikan state untuk mengontrol tampilan konten
+  // const [isContentVisible, setContentVisible] = useState(false);
+
+  // // Fungsi untuk menangani perubahan tombol radio
+  // const handleRadioChange = (e) => {
+  //   setContentVisible(e.target.checked);
+  // };
+
+  // Deklarasikan state untuk mengontrol tombol yang aktif (misalnya, '1', '2', atau '3')
+  const [activeButton, setActiveButton] = useState("1");
+
   const slides = [
     {
       url: "https://cdn.discordapp.com/attachments/1014442386857926666/1130032328140402688/poster1.jpg",
@@ -47,12 +59,28 @@ const Merchandise = () => {
     setCurrentIndex(slideIndex);
   };
 
+  const imageRefs = [useRef(null), useRef(null), useRef(null)];
+
+  const handleButtonClick = (index) => {
+    if (imageRefs[index].current) {
+      imageRefs[index].current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <NavigationBar />
 
+      {/* <div> */}
+      {/* <button onClick={handleButtonClick}>Klik untuk pergi ke Gambar</button> */}
+
+      {/* Konten lain */}
+
+      {/* <img ref={imageRef} src="gambar.jpg" alt="Target Image" /> */}
+    {/* </div> */}
+
       <div className="mt-6">
-        <h1 className="text-center font-bold text-4xl">SEMAFIT STORE</h1>
+        <h1 className="text-center font-bold text-4xl" id="setor">SEMAFIT STORE</h1>
         <h2 className="text-center font-semibold text-2xl">@toko.semafit</h2>
       </div>
 
@@ -62,11 +90,11 @@ const Merchandise = () => {
           className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
         ></div>
         {/* Left Arrow */}
-        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-56 text-2xl rounded-full p-2 bg-black/50 text-white cursor-pointer">
           <BsChevronCompactLeft onClick={prevSlide} size={30} />
         </div>
         {/* Right Arrow */}
-        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-56 text-2xl rounded-full p-2 bg-black/50 text-white cursor-pointer">
           <BsChevronCompactRight onClick={nextSlide} size={30} />
         </div>
         <div className="flex top-4 justify-center py-2">
@@ -82,10 +110,10 @@ const Merchandise = () => {
         </div>
       </div>
 
-      <div className="mt-16 mb-10 mx-auto text-center w-96">
+      <div className="my-36 mx-auto text-center">
         <h2 className="text-center font-semibold text-2xl">Merchandise</h2>
         <h1 className="text-center font-bold text-4xl">TokoSemaFIT</h1>
-        <h2 className="text-center text-xl ">
+        <h2 className="text-center text-xl mx-20">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt
           quisquam error ipsa suscipit, eaque cupiditate cumque exercitationem
           laboriosam neque delectus cum facilis aut ab dolorem quasi, distinctio
@@ -357,9 +385,10 @@ const Merchandise = () => {
           <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
             <div className="grid grid-cols-2 gap-4 md:grid-cols-1">
               <img
-                alt="Les Paul"
+                alt="Catalog of Lanyards"
                 srcSet="https://cdn.discordapp.com/attachments/1014443032797519914/1124018359856537621/Snapinsta.app_340161769_245411251269892_4144012272337964815_n_1024.jpg"
                 className="aspect-square w-full rounded-xl object-cover"
+                ref={imageRefs[0]}
               />
 
               <div className="grid grid-cols-2 gap-4 lg:mt-4">
@@ -422,7 +451,51 @@ const Merchandise = () => {
                   className="aspect-square w-full rounded-xl object-cover"
                 />
               </div>
+
+              <img
+                alt="Catalog of Notebooks"
+                srcSet="https://cdn.discordapp.com/attachments/1014443032797519914/1124018359856537621/Snapinsta.app_340161769_245411251269892_4144012272337964815_n_1024.jpg"
+                className="aspect-square w-full rounded-xl object-cover"
+                ref={imageRefs[1]}
+              />
+
+              <div className="grid grid-cols-2 gap-4 lg:mt-4">
+                <img
+                  alt="1"
+                  srcSet="https://cdn.discordapp.com/attachments/1014443032797519914/1124018326700564480/Snapinsta.app_339716358_882571886176223_4265324868679345371_n_1024.jpg"
+                  className="aspect-square w-full rounded-xl object-cover"
+                />
+
+                <img
+                  alt="2"
+                  srcSet="https://cdn.discordapp.com/attachments/1014443032797519914/1124018326406959225/Snapinsta.app_339965353_610524907294750_1075715689311415708_n_1024.jpg"
+                  className="aspect-square w-full rounded-xl object-cover"
+                />
+              </div>
+
+              <img
+                alt="Catalog of KeyTag"
+                srcSet="https://cdn.discordapp.com/attachments/1014443032797519914/1124018359856537621/Snapinsta.app_340161769_245411251269892_4144012272337964815_n_1024.jpg"
+                className="aspect-square w-full rounded-xl object-cover"
+                ref={imageRefs[2]}
+              />
+
+              <div className="grid grid-cols-2 gap-4 lg:mt-4">
+                <img
+                  alt="1"
+                  srcSet="https://cdn.discordapp.com/attachments/1014443032797519914/1124018326700564480/Snapinsta.app_339716358_882571886176223_4265324868679345371_n_1024.jpg"
+                  className="aspect-square w-full rounded-xl object-cover"
+                />
+
+                <img
+                  alt="2"
+                  srcSet="https://cdn.discordapp.com/attachments/1014443032797519914/1124018326406959225/Snapinsta.app_339965353_610524907294750_1075715689311415708_n_1024.jpg"
+                  className="aspect-square w-full rounded-xl object-cover"
+                />
+              </div>
+
             </div>
+
 
             <div className="sticky top-20 ">
               {/* <strong
@@ -431,343 +504,393 @@ const Merchandise = () => {
           Pre Order
         </strong> */}
 
-              <div className="mt-8 flex justify-between">
-                <div className="max-w-[35ch] space-y-2">
-                  <h1 className="text-xl font-bold sm:text-2xl">
-                    Catalog of Lanyards
-                  </h1>
-
-                  <p className="text-sm">Highest Rated Product</p>
-
-                  <div className="-ms-0.5 flex">
-                    <svg
-                      className="h-5 w-5 text-yellow-400"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-
-                    <svg
-                      className="h-5 w-5 text-yellow-400"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-
-                    <svg
-                      className="h-5 w-5 text-yellow-400"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-
-                    <svg
-                      className="h-5 w-5 text-yellow-400"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-
-                    <svg
-                      className="h-5 w-5 text-gray-200"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </div>
-                </div>
-
-                <p className="text-lg font-bold">Rp. 25.000 </p>
-              </div>
-
-              <div className="mt-4">
-                <div className="prose max-w-none">
-                  <p>
-                    𝘺𝘰, 𝘩𝘪𝘢𝘴𝘪 𝘒𝘢𝘳𝘵𝘶 𝘔𝘢𝘩𝘢𝘴𝘪𝘴𝘸𝘢 𝘺𝘢𝘯𝘨 𝘬𝘢𝘮𝘶 𝘮𝘪𝘭𝘪𝘬𝘪 𝘥𝘦𝘯𝘨𝘢𝘯 𝘥𝘦𝘴𝘢𝘪𝘯
-                    𝘭𝘢𝘯𝘺𝘢𝘳𝘥 𝘺𝘢𝘯𝘨 𝘴𝘢𝘯𝘨𝘢𝘵 𝘶𝘯𝘪𝘬 𝘥𝘢𝘳𝘪 𝘬𝘢𝘮𝘪!!! 𝘋𝘦𝘯𝘨𝘢𝘯 25𝘬 𝘢𝘫𝘢, 𝘬𝘢𝘮𝘶
-                    𝘶𝘥𝘢𝘩 𝘣𝘪𝘴𝘢 𝘮𝘦𝘯𝘥𝘢𝘱𝘢𝘵𝘬𝘢𝘯 𝘴𝘦𝘣𝘶𝘢𝘩 𝘭𝘢𝘯𝘺𝘢𝘳𝘥 𝘥𝘦𝘯𝘨𝘢𝘯 𝘨𝘢𝘺𝘢 𝘺𝘢𝘯𝘨
-                    𝘬𝘦𝘬𝘪𝘯𝘪𝘢𝘯. 𝘑𝘢𝘯𝘨𝘢𝘯 𝘳𝘢𝘨𝘶𝘬𝘢𝘯 𝘬𝘶𝘢𝘭𝘪𝘵𝘢𝘴 𝘺𝘢𝘯𝘨 𝘬𝘢𝘮𝘪 𝘵𝘢𝘸𝘢𝘳𝘬𝘢𝘯,
-                    𝘵𝘦𝘳𝘫𝘢𝘮𝘪𝘯 𝘣𝘢𝘪𝘬 👍😄 𝘈𝘺𝘰, 𝘣𝘶𝘳𝘶𝘢𝘯 𝘣𝘦𝘭𝘪 𝘴𝘦𝘬𝘢𝘳𝘢𝘯𝘨 𝘴𝘦𝘣𝘦𝘭𝘶𝘮
-                    𝘬𝘦𝘩𝘢𝘣𝘪𝘴𝘢𝘯!!!
-                  </p>
-                </div>
-
-                {/* <button className="mt-2 text-sm font-medium underline">Read More</button> */}
-              </div>
-
-              <form className="mt-8">
-                {/* <fieldset>
-                  <legend className="mb-1 text-sm font-medium">Color</legend>
-
-                  <div className="flex flex-wrap gap-1">
-                    <label htmlFor="color_tt" className="cursor-pointer">
-                      <input
-                        readOnly
-                        type="radio"
-                        name="color"
-                        id="color_tt"
-                        className="peer sr-only"
-                      />
-
-                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                        #1
-                      </span>
-                    </label>
-
-                    <label htmlFor="color_fr" className="cursor-pointer">
-                      <input
-                        readOnly
-                        type="radio"
-                        name="color"
-                        id="color_fr"
-                        className="peer sr-only"
-                      />
-
-                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                        #2
-                      </span>
-                    </label>
-
-                    <label htmlFor="color_cb" className="cursor-pointer">
-                      <input
-                        readOnly
-                        type="radio"
-                        name="color"
-                        id="color_cb"
-                        className="peer sr-only"
-                      />
-
-                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                        #3
-                      </span>
-                    </label>
-
-                    <label htmlFor="color_cb" className="cursor-pointer">
-                      <input
-                        readOnly
-                        type="radio"
-                        name="color"
-                        id="color_cb"
-                        className="peer sr-only"
-                      />
-
-                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                        #4
-                      </span>
-                    </label>
-
-                    <label htmlFor="color_cb" className="cursor-pointer">
-                      <input
-                        readOnly
-                        type="radio"
-                        name="color"
-                        id="color_cb"
-                        className="peer sr-only"
-                      />
-
-                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                        #5
-                      </span>
-                    </label>
-
-                    <label htmlFor="color_cb" className="cursor-pointer">
-                      <input
-                        readOnly
-                        type="radio"
-                        name="color"
-                        id="color_cb"
-                        className="peer sr-only"
-                      />
-
-                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                        #6
-                      </span>
-                    </label>
-
-                    <label htmlFor="color_cb" className="cursor-pointer">
-                      <input
-                        readOnly
-                        type="radio"
-                        name="color"
-                        id="color_cb"
-                        className="peer sr-only"
-                      />
-
-                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                        #7
-                      </span>
-                    </label>
-
-                    <label htmlFor="color_cb" className="cursor-pointer">
-                      <input
-                        readOnly
-                        type="radio"
-                        name="color"
-                        id="color_cb"
-                        className="peer sr-only"
-                      />
-
-                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                        #8
-                      </span>
-                    </label>
-
-                    <label htmlFor="color_cb" className="cursor-pointer">
-                      <input
-                        readOnly
-                        type="radio"
-                        name="color"
-                        id="color_cb"
-                        className="peer sr-only"
-                      />
-
-                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                        #9
-                      </span>
-                    </label>
-
-                    <label htmlFor="color_cb" className="cursor-pointer">
-                      <input
-                        readOnly
-                        type="radio"
-                        name="color"
-                        id="color_cb"
-                        className="peer sr-only"
-                      />
-
-                      <span className="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                        #10
-                      </span>
-                    </label>
-                  </div>
-                </fieldset> */}
-
-                {/* <fieldset className="mt-4">
-            <legend className="mb-1 text-sm font-medium">Size</legend>
-
-            <div className="flex flex-wrap gap-1">
-              <label htmlFor="size_xs" className="cursor-pointer">
-                <input
-                  readOnly
-                  type="radio"
-                  name="size"
-                  id="size_xs"
-                  className="peer sr-only"
-                />
-
-                <span
-                  className="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                >
-                  XS
-                </span>
-              </label>
-
-              <label htmlFor="size_s" className="cursor-pointer">
-                <input
-                  readOnly
-                  type="radio"
-                  name="size"
-                  id="size_s"
-                  className="peer sr-only"
-                />
-
-                <span
-                  className="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                >
-                  S
-                </span>
-              </label>
-
-              <label htmlFor="size_m" className="cursor-pointer">
-                <input
-                  readOnly
-                  type="radio"
-                  name="size"
-                  id="size_m"
-                  className="peer sr-only"
-                />
-
-                <span
-                  className="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                >
-                  M
-                </span>
-              </label>
-
-              <label htmlFor="size_l" className="cursor-pointer">
-                <input
-                  readOnly
-                  type="radio"
-                  name="size"
-                  id="size_l"
-                  className="peer sr-only"
-                />
-
-                <span
-                  className="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                >
-                  L
-                </span>
-              </label>
-
-              <label htmlFor="size_xl" className="cursor-pointer">
-                <input
-                  readOnly
-                  type="radio"
-                  name="size"
-                  id="size_xl"
-                  className="peer sr-only"
-                />
-
-                <span
-                  className="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                >
-                  XL
-                </span>
-              </label>
-            </div>
-          </fieldset> */}
-
-                <div className="mt-8 flex gap-4">
-                  {/* <div>
-                    <label htmlFor="quantity" className="sr-only">
-                      Qty
-                    </label>
-
+              <fieldset className="space-y-4">
+                <div>
+                  <div className="my-10">
                     <input
-                      readOnly
-                      type="number"
-                      id="quantity"
-                      min="1"
+                      type="radio"
+                      name="DeliveryOption"
                       value="1"
-                      className="w-12 rounded border-gray-200 py-3 text-center text-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                      id="Button1"
+                      className="peer hidden [&:checked_+_label_svg]:block"
+                      checked={activeButton === "1"}
+                      onChange={(e) => setActiveButton(e.target.value)}
                     />
-                  </div> */}
+                    <label
+                    onClick={() => handleButtonClick(0)}
+                      htmlFor="Button1"
+                      className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-100 bg-white p-4 text-sm font-medium shadow-sm hover:border-gray-200 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500"
+                    >
+                      <div className="flex items-center gap-2">
+                      <svg
+                        className="hidden h-5 w-5 text-blue-600"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
 
-                  <a
-                    href="https://api.whatsapp.com/message/OMOFULN4CYZNC1?autoload=1&app_absent=0"
-                    className="block rounded bg-blue-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
-                    role="button"
-                    target="blank"
-                  >
-                    Contact For Order
-                  </a>
+                      <p className="text-gray-700">Catalog of Lanyards</p>
+                    </div>
+                    </label>
+                    {activeButton === "1" && <div id="section-1" className="product-section"><div className="mt-8 flex justify-between">
+                  <div className="max-w-[35ch] space-y-2">
+                    <h1 className="text-xl font-bold sm:text-2xl">
+                      Catalog of Lanyards
+                    </h1>
+
+                    <p className="text-sm">Highest Rated Product</p>
+
+                    <div className="-ms-0.5 flex">
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg
+                        className="h-5 w-5 text-gray-200"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <p className="text-lg font-bold">Rp. 25.000 </p>
                 </div>
-              </form>
+
+                <div className="mt-4">
+                  <div className="prose max-w-none">
+                    <p>
+                      {" "}
+                      𝘺𝘰, 𝘩𝘪𝘢𝘴𝘪 𝘒𝘢𝘳𝘵𝘶 𝘔𝘢𝘩𝘢𝘴𝘪𝘴𝘸𝘢 𝘺𝘢𝘯𝘨 𝘬𝘢𝘮𝘶 𝘮𝘪𝘭𝘪𝘬𝘪 𝘥𝘦𝘯𝘨𝘢𝘯 𝘥𝘦𝘴𝘢𝘪𝘯
+                      𝘭𝘢𝘯𝘺𝘢𝘳𝘥 𝘺𝘢𝘯𝘨 𝘴𝘢𝘯𝘨𝘢𝘵 𝘶𝘯𝘪𝘬 𝘥𝘢𝘳𝘪 𝘬𝘢𝘮𝘪!!! 𝘋𝘦𝘯𝘨𝘢𝘯 25𝘬 𝘢𝘫𝘢, 𝘬𝘢𝘮𝘶
+                      𝘶𝘥𝘢𝘩 𝘣𝘪𝘴𝘢 𝘮𝘦𝘯𝘥𝘢𝘱𝘢𝘵𝘬𝘢𝘯 𝘴𝘦𝘣𝘶𝘢𝘩 𝘭𝘢𝘯𝘺𝘢𝘳𝘥 𝘥𝘦𝘯𝘨𝘢𝘯 𝘨𝘢𝘺𝘢 𝘺𝘢𝘯𝘨
+                      𝘬𝘦𝘬𝘪𝘯𝘪𝘢𝘯. 𝘑𝘢𝘯𝘨𝘢𝘯 𝘳𝘢𝘨𝘶𝘬𝘢𝘯 𝘬𝘶𝘢𝘭𝘪𝘵𝘢𝘴 𝘺𝘢𝘯𝘨 𝘬𝘢𝘮𝘪 𝘵𝘢𝘸𝘢𝘳𝘬𝘢𝘯,
+                      𝘵𝘦𝘳𝘫𝘢𝘮𝘪𝘯 𝘣𝘢𝘪𝘬 👍😄 𝘈𝘺𝘰, 𝘣𝘶𝘳𝘶𝘢𝘯 𝘣𝘦𝘭𝘪 𝘴𝘦𝘬𝘢𝘳𝘢𝘯𝘨 𝘴𝘦𝘣𝘦𝘭𝘶𝘮
+                      𝘬𝘦𝘩𝘢𝘣𝘪𝘴𝘢𝘯!!!
+                    </p>
+                  </div>
+                  <div className="mt-8 flex gap-4">
+                    <a
+                      href="https://api.whatsapp.com/message/OMOFULN4CYZNC1?autoload=1&app_absent=0"
+                      className="block rounded bg-blue-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
+                      role="button"
+                      target="blank"
+                    >
+                      Contact For Order
+                    </a>
+                  </div>
+                  {/* <button className="mt-2 text-sm font-medium underline">Read More</button> */}
+                </div>
+                </div>}
+                  </div>
+                  <div className="my-10">
+                    <input
+                      type="radio"
+                      name="DeliveryOption"
+                      value="2"
+                      id="Button2"
+                      className="peer hidden [&:checked_+_label_svg]:block"
+                      checked={activeButton === "2"}
+                      onChange={(e) => setActiveButton(e.target.value)}
+                      onClick={() => handleButtonClick(1)}
+                    />
+                    <label
+                      htmlFor="Button2"
+                      className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-100 bg-white p-4 text-sm font-medium shadow-sm hover:border-gray-200 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500"
+                    >
+                      <div className="flex items-center gap-2">
+                      <svg
+                        className="hidden h-5 w-5 text-blue-600"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+
+                      <p className="text-gray-700">Catalog of Notebooks</p>
+                    </div>
+                    </label>
+                    {activeButton === "2" && <div><div className="mt-8 flex justify-between">
+                  <div className="max-w-[35ch] space-y-2">
+                    <h1 className="text-xl font-bold sm:text-2xl">
+                      Catalog of Notebooks
+                    </h1>
+
+                    <p className="text-sm">Highest Rated Product</p>
+
+                    <div className="-ms-0.5 flex">
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg
+                        className="h-5 w-5 text-gray-200"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <p className="text-lg font-bold">Rp. ??.000 </p>
+                </div>
+
+                <div className="mt-4">
+                  <div className="prose max-w-none">
+                    <p>
+                      {" "}
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi tempora itaque.
+                    </p>
+                  </div>
+                  <div className="mt-8 flex gap-4">
+                    <a
+                      href="https://api.whatsapp.com/message/OMOFULN4CYZNC1?autoload=1&app_absent=0"
+                      className="block rounded bg-blue-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
+                      role="button"
+                      target="blank"
+                    >
+                      Contact For Order
+                    </a>
+                  </div>
+                  {/* <button className="mt-2 text-sm font-medium underline">Read More</button> */}
+                </div>
+                </div>}
+                  </div>
+                  <div className="my-10">
+                    <input
+                      type="radio"
+                      name="DeliveryOption"
+                      value="3"
+                      id="Button3"
+                      className="peer hidden [&:checked_+_label_svg]:block"
+                      checked={activeButton === "3"}
+                      onChange={(e) => setActiveButton(e.target.value)}
+                      onClick={() => handleButtonClick(2)}
+                    />
+                    <label
+                      htmlFor="Button3"
+                      className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-100 bg-white p-4 text-sm font-medium shadow-sm hover:border-gray-200 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500"
+                    >
+                      <div className="flex items-center gap-2">
+                      <svg
+                        className="hidden h-5 w-5 text-blue-600"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+
+                      <p className="text-gray-700">Catalog of KeyTag</p>
+                    </div>
+                    </label>
+                    {activeButton === "3" && <div><div className="mt-8 flex justify-between">
+                  <div className="max-w-[35ch] space-y-2">
+                    <h1 className="text-xl font-bold sm:text-2xl">
+                      Catalog of KeyTag
+                    </h1>
+
+                    <p className="text-sm">Highest Rated Product</p>
+
+                    <div className="-ms-0.5 flex">
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg
+                        className="h-5 w-5 text-yellow-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg
+                        className="h-5 w-5 text-gray-200"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <p className="text-lg font-bold">Rp. 5.000 </p>
+                </div>
+
+                <div className="mt-4">
+                  <div className="prose max-w-none">
+                    <p>
+                      {" "}
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti quaerat molestias, est porro tenetur dolorem?
+                    </p>
+                  </div>
+                  <div className="mt-8 flex gap-4">
+                    <a
+                      href="https://api.whatsapp.com/message/OMOFULN4CYZNC1?autoload=1&app_absent=0"
+                      className="block rounded bg-blue-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
+                      role="button"
+                      target="blank"
+                    >
+                      Contact For Order
+                    </a>
+                  </div>
+                  {/* <button className="mt-2 text-sm font-medium underline">Read More</button> */}
+                </div>
+                </div>}
+                  </div>
+                </div>
+
+                <legend className="sr-only">Delivery</legend>
+
+                {/* <div>
+                  <input
+                    type="radio"
+                    name="DeliveryOption"
+                    value="DeliveryStandard"
+                    id="DeliveryStandard"
+                    className="peer hidden [&:checked_+_label_svg]:block"
+                    checked
+                  />
+
+                  <label
+                    htmlFor="DeliveryStandard"
+                    className="flex cursor-pointer items-center justify-between rounded-lg border border-gray-100 bg-white p-4 text-sm font-medium shadow-sm hover:border-gray-200 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500"
+                  >
+                    <div className="flex items-center gap-2">
+                      <svg
+                        className="hidden h-5 w-5 text-blue-600"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+
+                      <p className="text-gray-700">Catalog of Lanyard</p>
+                    </div>
+
+                  </label>
+                </div> */}
+              </fieldset>
             </div>
           </div>
         </div>
       </section>
+
+      
 
       <Footer />
     </>

@@ -1,5 +1,5 @@
 // import "../Css/main.css";
-import "../Js/script";
+// import "../Js/script";
 // import "../App.css";
 import "swiper/css";
 import "swiper/css/navigation";
