@@ -7,57 +7,40 @@ import p1 from "../Image/Poster1.jpg";
 import p2 from "../Image/poster2.jpg";
 import p3 from "../Image/poster3.jpg";
 import "../Js/script";
+import 'flowbite';
 
 // import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 // import { RxDotFilled } from "react-icons/rx";
 
 const Merchandise = () => {
   // // Deklarasikan state untuk mengontrol tampilan konten
-  // const [isContentVisible, setContentVisible] = useState(false);
+  const [isContentVisible, setContentVisible] = useState(false);
 
   // // Fungsi untuk menangani perubahan tombol radio
-  // const handleRadioChange = (e) => {
-  //   setContentVisible(e.target.checked);
-  // };
+  const handleRadioChange = (e) => {
+    setContentVisible(e.target.checked);
+  };
 
   // Deklarasikan state untuk mengontrol tombol yang aktif (misalnya, '1', '2', atau '3')
   const [activeButton, setActiveButton] = useState("1");
 
-  // const slides = [
-  //   {
-  //     url: "https://cdn.discordapp.com/attachments/1014442386857926666/1130032328140402688/poster1.jpg",
-  //   },
-  //   {
-  //     url: "https://cdn.discordapp.com/attachments/1014442386857926666/1130032327247016078/poster2.jpg",
-  //   },
-  //   {
-  //     url: "https://cdn.discordapp.com/attachments/1014442386857926666/1130032327574159420/poster3.jpg",
-  //   },
-  //   {
-  //     url: "https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80",
-  //   },
-  //   {
-  //     url: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
-  //   },
-  // ];
-
-  // const [currentIndex, setCurrentIndex] = useState(0);
-
-  // const prevSlide = () => {
-  //   const isFirstSlide = currentIndex === 0;
-  //   const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-  //   setCurrentIndex(newIndex);
-  // };
-
-  // const nextSlide = () => {
-  //   const isLastSlide = currentIndex === slides.length - 1;
-  //   const newIndex = isLastSlide ? 0 : currentIndex + 1;
-  //   setCurrentIndex(newIndex);
-  // };
-
-  // const goToSlide = (slideIndex) => {
-  //   setCurrentIndex(slideIndex);
-  // };
+  const slides = [
+    {
+      url: "https://cdn.discordapp.com/attachments/1014442386857926666/1130032328140402688/poster1.jpg",
+    },
+    {
+      url: "https://cdn.discordapp.com/attachments/1014442386857926666/1130032327247016078/poster2.jpg",
+    },
+    {
+      url: "https://cdn.discordapp.com/attachments/1014442386857926666/1130032327574159420/poster3.jpg",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
+    },
+  ];
 
   const imageRefs = [useRef(null), useRef(null), useRef(null)];
 
@@ -71,14 +54,6 @@ const Merchandise = () => {
     <>
       <NavigationBar />
 
-      {/* <div> */}
-      {/* <button onClick={handleButtonClick}>Klik untuk pergi ke Gambar</button> */}
-
-      {/* Konten lain */}
-
-      {/* <img ref={imageRef} src="gambar.jpg" alt="Target Image" /> */}
-      {/* </div> */}
-
       <div className="mt-6">
         <h1 className="text-center font-bold text-4xl" id="setor">
           SEMAFIT STORE
@@ -86,47 +61,30 @@ const Merchandise = () => {
         <h2 className="text-center font-semibold text-2xl">@toko.semafit</h2>
       </div>
 
-      <div id="default-carousel" className="relative w-full" data-carousel="slide">
-        <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-          <div className="duration-700 ease-in-out" data-carousel-item>
-            <img src={p1} className="absolute block w-full" alt="Poster 1" />
-          </div>
-          <div className="duration-700 ease-in-out" data-carousel-item>
-            <img src={p2} className="absolute block w-full" alt="Poster 2"/>
-          </div>
-          <div className="duration-700 ease-in-out" data-carousel-item>
-            <img src={p3} className="absolute block w-full" alt="Poster 3"/>
-          </div>
-        </div>
-        <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-          <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"></button>
-          <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"></button>
-        </div>
-      </div>
-      
-<div id="default-carousel" className="relative w-full" data-carousel="slide">
+
+
+      <div id="default-carousel" class="relative w-full py-16" data-carousel="slide">
     {/* <!-- Carousel wrapper --> */}
-    <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
          {/* <!-- Item 1 --> */}
-        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="" srcSet={p1} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src={p1} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
         </div>
         {/* <!-- Item 2 --> */}
-        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="" srcSet={p2} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src={p2} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
         </div>
         {/* <!-- Item 3 --> */}
-        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="" srcSet={p3} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src={p3} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
         </div>
         {/* <!-- Item 4 --> */}
-        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="" srcSet={p1} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src={p1} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
         </div>
         {/* <!-- Item 5 --> */}
-        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="" srcSet={p2} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src={p2} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
         </div>
     </div>
     {/* <!-- Slider indicators --> */}
@@ -157,83 +115,6 @@ const Merchandise = () => {
 </div>
 
 
-<div id="indicators-carousel" className="relative w-full" data-carousel="static">
-    {/* <!-- Carousel wrapper --> */}
-    <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-         {/* <!-- Item 1 --> */}
-        <div className="hidden duration-700 ease-in-out" data-carousel-item="active">
-            <img srcSet="../Image/Poster1.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-        </div>
-        {/* <!-- Item 2 --> */}
-        <div className="hidden duration-700 ease-in-out">
-            <img srcSet="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-        </div>
-        {/* <!-- Item 3 --> */}
-        <div className="hidden duration-700 ease-in-out">
-            <img srcSet="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-        </div>
-        {/* <!-- Item 4 --> */}
-        <div className="hidden duration-700 ease-in-out">
-            <img srcSet="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-        </div>
-        {/* <!-- Item 5 --> */}
-        <div className="hidden duration-700 ease-in-out">
-            <img srcSet="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-        </div>
-    </div>
-    {/* <!-- Slider indicators --> */}
-    <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-    </div>
-    {/* <!-- Slider controls --> */}
-    <button type="button" className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg className="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4"/>
-            </svg>
-            <span className="sr-only">Previous</span>
-        </span>
-    </button>
-    <button type="button" className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg className="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/>
-            </svg>
-            <span className="sr-only">Next</span>
-        </span>
-    </button>
-</div>
-
-
-      {/* <div className="max-w-[100%] h-[500px] w-full m-auto py-6 px-4 relative group"> */}
-        {/* <div
-          style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-          className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
-        ></div> */}
-        {/* Left Arrow */}
-        {/* <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-56 text-2xl rounded-full p-2 bg-black/50 text-white cursor-pointer">
-          <BsChevronCompactLeft onClick={prevSlide} size={30} />
-        </div> */}
-        {/* Right Arrow */}
-        {/* <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-56 text-2xl rounded-full p-2 bg-black/50 text-white cursor-pointer">
-          <BsChevronCompactRight onClick={nextSlide} size={30} />
-        </div> */}
-        {/* <div className="flex top-4 justify-center py-2">
-          {slides.map((slide, slideIndex) => (
-            <div
-              key={slideIndex}
-              onClick={() => goToSlide(slideIndex)}
-              className="text-2xl cursor-pointer"
-            >
-              <RxDotFilled />
-            </div>
-          ))}
-        </div> */}
-      {/* </div> */}
 
       <div className="my-36 mx-auto text-center">
         <h2 className="text-center font-semibold text-2xl">Merchandise</h2>
