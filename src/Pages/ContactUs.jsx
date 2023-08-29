@@ -98,9 +98,16 @@ const Contact = () => {
       <section>
         <div className="mx-auto grid max-w-screen-2xl grid-cols-1 md:grid-cols-2 ">
           <div className="bg-gray-50 border-r-4">
-
-          <iframe title="Maps" className="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d441.11012184668033!2d107.58097030174395!3d-6.886467404489373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6873bb80d89%3A0xac80cbb5325a54e4!2sGraha%20Widya%20Maranatha!5e0!3m2!1sen!2sid!4v1681526535328!5m2!1sen!2sid" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-
+            <iframe
+              title="Maps"
+              className="w-full h-full"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d441.11012184668033!2d107.58097030174395!3d-6.886467404489373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6873bb80d89%3A0xac80cbb5325a54e4!2sGraha%20Widya%20Maranatha!5e0!3m2!1sen!2sid!4v1681526535328!5m2!1sen!2sid"
+              width="600"
+              height="450"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
 
           <div className="bg-white py-12 md:py-10">
@@ -118,15 +125,14 @@ const Contact = () => {
                 {contactMethods.map((item, idx) => (
                   <div key={idx} className="">
                     <a href={item.link.href}>
-                    <div className="mt-5 flex items-center gap-x-3 justify-center py-2.5 border rounded-lg hover:bg-gray-50 duration-150 active:bg-gray-100">
-                      
-                      <div className="flex-none w-12 h-12 rounded-full border flex items-center justify-center text-gray-700">
-                        {item.icon}
+                      <div className="mt-5 flex items-center gap-x-3 justify-center py-2.5 border rounded-lg hover:bg-gray-50 duration-150 active:bg-gray-100">
+                        <div className="flex-none w-12 h-12 rounded-full border flex items-center justify-center text-gray-700">
+                          {item.icon}
+                        </div>
+                        <p className="text-gray-800 text-lg font-medium xl:text-xl">
+                          {item.title}
+                        </p>
                       </div>
-                      <p className="text-gray-800 text-lg font-medium xl:text-xl">
-                        {item.title}
-                      </p>
-                    </div>
                     </a>
                     <p className="text-center">{item.desc}</p>
                     <a
@@ -208,7 +214,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      
+
       <Footer />
     </>
   );

@@ -1,6 +1,3 @@
-// import "../Css/main.css";
-// import "../Js/script";
-// import "../App.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -22,7 +19,6 @@ const Home = () => {
       title: "Sekarang ini, siapakah yang menjabat sebagai Ketua Semafit?",
       desc: "Going into this journey, I had a standard therapy regimen, based on looking at the research literature. After I saw the movie, I started to ask other people what they did for their anxiety, and some",
       img: "https://cdn.discordapp.com/attachments/952574676293517506/1018534446892322836/Desain_tanpa_judul_1.png",
-      // img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
       authorLogo:
         "https://cdn.discordapp.com/attachments/1014443032797519914/1095572020701450300/20230331175602_IMG_5990.jpg",
       authorName: "Cristianto",
@@ -561,7 +557,7 @@ const Home = () => {
         </div>
       </section>
 
-      <Footer/>
+      <Footer />
     </>
   );
 };

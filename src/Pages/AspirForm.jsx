@@ -71,7 +71,7 @@ const AspirForm = () => {
                       id="division"
                       className="w-full rounded-lg border-gray-400 p-3 text-sm bg-white border shadow-sm focus:outline-none focus:border-slate-950 focus:ring-slate-950 block sm:text-sm focus:ring-1"
                     >
-                      <option defaultValue >To Division</option>
+                      <option defaultValue>To Division</option>
                       <option value="BPH">Badan Pengurus Harian</option>
                       <option value="DNS">Dana Usaha</option>
                       <option value="AKD">Akademik</option>
@@ -80,17 +80,6 @@ const AspirForm = () => {
                       <option value="KRH">Kerohanian</option>
                       <option value="HMS">Hubungan Masyarakat</option>
                     </select>
-
-                    {/* <label className="sr-only" htmlFor="division">
-                    To Division
-                    </label>
-                    <input
-                      className="w-full rounded-lg border-gray-400 p-3 text-sm bg-white border shadow-sm focus:outline-none focus:border-slate-950 focus:ring-slate-950 block sm:text-sm focus:ring-1"
-                      placeholder="To Division"
-                      type="division"
-                      id="division"
-                      name="division"
-                    /> */}
                   </div>
 
                   <div>

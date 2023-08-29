@@ -1,9 +1,6 @@
 import Footer from "../Components/Footer";
 import NavigationBar from "../Components/NavigationBar";
-// import React from "react";
 import React, { useRef, useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import "../Css/carousel.css";
 import diskusi from "../Image/diskusi.jpg";
 import stuban from "../Image/Stuban1.jpg";
@@ -11,7 +8,6 @@ import ran from "../Image/Apaini.jpg";
 
 const Events = () => {
   const slideRef = useRef(null);
-  const [loadingProgress, setLoadingProgress] = useState(0);
 
   const handleClickNext = () => {
     let items = slideRef.current.querySelectorAll(".itemCarousel");
@@ -61,10 +57,6 @@ const Events = () => {
       <NavigationBar />
       <div className="">
         <div className="containerCarousel">
-          <div
-            className="loadbar"
-            style={{ width: `${loadingProgress}%` }}
-          ></div>
           <div id="slideCarousel" ref={slideRef}>
             {data.map((item) => (
               <div
@@ -134,14 +126,14 @@ const Events = () => {
       </section>
 
       <div className="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
-        <p class="text-5xl text-center py-10 font-black	"> PROGRAM KERJA </p>
+        <p className="text-5xl text-center py-10 font-black	"> PROGRAM KERJA </p>
 
         <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-8">
           <div className="rounded-lg bg-gray-900">
             <article className="flex bg-white transition hover:shadow-xl">
               <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
                 <time
-                  datetime="2022-10-10"
+                  dateTime="2022-10-10"
                   className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
                 >
                   <span>2023</span>
@@ -186,7 +178,7 @@ const Events = () => {
             <article className="flex bg-white transition hover:shadow-xl">
               <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
                 <time
-                  datetime="2022-10-10"
+                  dateTime="2022-10-10"
                   className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
                 >
                   <span>2023</span>
@@ -229,7 +221,7 @@ const Events = () => {
             <article className="flex bg-white transition hover:shadow-xl">
               <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
                 <time
-                  datetime="2022-10-10"
+                  dateTime="2022-10-10"
                   className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
                 >
                   <span>2023</span>
